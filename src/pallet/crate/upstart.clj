@@ -82,7 +82,7 @@
      (last (string/split (name-for k) #" ")))))
 
 (defn- job-format [options]
-  (string/join \newline (string/join (map format-stanza options))))
+  (string/join \newline (concat (map format-stanza options))))
 
 (defn job
   "Define an upstart job.
