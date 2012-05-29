@@ -81,7 +81,7 @@
      v
      (last (string/split (name-for k) #" ")))))
 
-(defn job-format [options]
+(defn- job-format [options]
   (string/join \newline (string/join (map format-stanza options))))
 
 (defn job
@@ -100,7 +100,7 @@
            kill-timeout expect] :as options}]
   (->
    session
-   #_(remote-file/remote-file
+   (remote-file/remote-file
     (format "/etc/init/%s.conf" name)
     :content (job-format options)
     :literal true)
